@@ -62,7 +62,7 @@ export default class Dropdown extends PureComponent {
 
     textColor: 'rgba(0, 0, 0, .87)',
     itemColor: 'rgba(0, 0, 0, .54)',
-    baseColor: 'rgba(0, 0, 0, .38)',
+    baseColor: 'rgba(0, 0, 0, 0)',
 
     itemCount: 4,
     itemPadding: 8,
@@ -506,7 +506,7 @@ export default class Dropdown extends PureComponent {
     return (
       <TextField
         label=''
-        labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 2 })}
+        labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 1 })}
 
         {...props}
 
@@ -556,7 +556,7 @@ export default class Dropdown extends PureComponent {
     return (
       <View style={styles.accessory}>
         <View style={styles.triangleContainer}>
-          <View style={[styles.triangle, triangleStyle]} />
+          <View style={[styles.triangle, {backgroundColor:'#9B9B9B'}]} />
         </View>
       </View>
     );
