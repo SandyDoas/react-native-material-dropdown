@@ -507,7 +507,7 @@ export default class Dropdown extends PureComponent {
       <TextField
         label=''
         labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 1 })}
-        labelPadding={12}
+        labelPadding={Platform.OS=='ios'?8:12}
         {...props}
         textColor='#000000'
         labelTextStyle={{color:'#000000'}}
