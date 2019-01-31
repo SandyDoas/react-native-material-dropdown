@@ -345,6 +345,7 @@ export default class Dropdown extends PureComponent {
       onChangeText,
       animationDuration,
       rippleDuration,
+      onSelect
     } = this.props;
 
     let value = valueExtractor(data[index], index);
@@ -352,8 +353,10 @@ export default class Dropdown extends PureComponent {
 
     if ('function' === typeof onChangeText) {
       onChangeText(value, index, data);
+      
     }
-
+    // Return Value To Screen 
+    onSelect(value)
     setTimeout(() => this.onClose(value), delay);
   }
 
