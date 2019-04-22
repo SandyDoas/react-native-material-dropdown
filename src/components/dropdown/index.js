@@ -353,7 +353,7 @@ export default class Dropdown extends PureComponent {
 
     if ('function' === typeof onChangeText) {
       onChangeText(value, index, data);
-      
+
     }
     // Return Value To Screen 
     onSelect(value)
@@ -502,19 +502,20 @@ export default class Dropdown extends PureComponent {
       return renderBase({ ...props, title, value, renderAccessory });
     }
 
-    title = null == title || 'string' === typeof title?
-      title:
+    title = null == title || 'string' === typeof title ?
+      title :
       String(title);
 
     return (
       <TextField
         label=''
         labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 1 })}
-        labelPadding={Platform.OS=='ios'?8:12}
+        labelPadding={Platform.OS == 'ios' ? 8 : 12}
         {...props}
         textColor='#000000'
-        labelTextStyle={{color:'#000000'}}
+        labelTextStyle={{ color: '#000000' }}
         fontSize={18}
+        fontFamily={this.props.fontFamily}
         value={title}
         editable={false}
         onChangeText={undefined}
@@ -562,7 +563,7 @@ export default class Dropdown extends PureComponent {
     return (
       <View style={styles.accessory}>
         <View style={styles.triangleContainer}>
-          <View style={[styles.triangle, {backgroundColor:'#9B9B9B'}]} />
+          <View style={[styles.triangle, { backgroundColor: '#9B9B9B' }]} />
         </View>
       </View>
     );
@@ -611,16 +612,16 @@ export default class Dropdown extends PureComponent {
     let value = valueExtractor(item, index);
     let label = labelExtractor(item, index);
 
-    let title = null == label?
-      value:
+    let title = null == label ?
+      value :
       label;
 
-    let color = disabled?
-      disabledItemColor:
-      ~selected?
-        index === selected?
-          selectedItemColor:
-          itemColor:
+    let color = disabled ?
+      disabledItemColor :
+      ~selected ?
+        index === selected ?
+          selectedItemColor :
+          itemColor :
         selectedItemColor;
 
     let textStyle = { color, fontSize };
@@ -688,7 +689,7 @@ export default class Dropdown extends PureComponent {
     if (null == dropdownPosition) {
       switch (selected) {
         case -1:
-          translateY -= 1 === itemCount? 0 : itemSize;
+          translateY -= 1 === itemCount ? 0 : itemSize;
           break;
 
         case 0:
