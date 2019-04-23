@@ -512,9 +512,9 @@ export default class Dropdown extends PureComponent {
         labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 1 })}
         labelPadding={Platform.OS == 'ios' ? 8 : 12}
         {...props}
-        textColor='#000000'
+        textColor={this.props.textColor}
         labelTextStyle={{ color: '#000000' }}
-        fontSize={18}
+        fontSize={this.props.fontSize}
         fontFamily={this.props.fontFamily}
         value={title}
         editable={false}
